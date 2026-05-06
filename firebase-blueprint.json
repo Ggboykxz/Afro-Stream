@@ -1,0 +1,116 @@
+{
+  "entities": {
+    "Anime": {
+      "title": "Anime",
+      "description": "Represents an African anime, manga, or film.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "titleOriginal": { "type": "string" },
+        "synopsis": { "type": "string" },
+        "posterUrl": { "type": "string", "format": "uri" },
+        "bannerUrl": { "type": "string", "format": "uri" },
+        "trailerUrl": { "type": "string", "format": "uri" },
+        "genres": { "type": "array", "items": { "type": "string" } },
+        "country": { "type": "string" },
+        "studio": { "type": "string" },
+        "year": { "type": "number" },
+        "status": { "type": "string", "enum": ["ongoing", "completed", "upcoming"] },
+        "format": { "type": "string", "enum": ["anime", "webtoon", "manga", "film"] },
+        "rating": { "type": "number" },
+        "popularity": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "posterUrl", "genres", "country", "status", "format"]
+    },
+    "Episode": {
+      "title": "Episode",
+      "description": "A single episode of an anime.",
+      "type": "object",
+      "properties": {
+        "number": { "type": "number" },
+        "seasonNumber": { "type": "number" },
+        "title": { "type": "string" },
+        "thumbnailUrl": { "type": "string", "format": "uri" },
+        "videoUrl": { "type": "string", "format": "uri" },
+        "duration": { "type": "number" },
+        "releaseDate": { "type": "string", "format": "date-time" },
+        "subtitles": { "type": "array", "items": { "type": "object", "properties": { "lang": { "type": "string" }, "url": { "type": "string", "format": "uri" } } } }
+      }
+    },
+    "Chapter": {
+      "title": "Chapter",
+      "description": "A single chapter of a manga or webtoon.",
+      "type": "object",
+      "properties": {
+        "number": { "type": "number" },
+        "title": { "type": "string" },
+        "pages": { "type": "array", "items": { "type": "string", "format": "uri" } },
+        "releaseDate": { "type": "string", "format": "date-time" }
+      }
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile data.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "username": { "type": "string" },
+        "avatarUrl": { "type": "string", "format": "uri" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "WatchHistory": {
+      "title": "WatchHistory",
+      "description": "Tracks user progress in an anime.",
+      "type": "object",
+      "properties": {
+        "episodeId": { "type": "string" },
+        "progress": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "ReadHistory": {
+      "title": "ReadHistory",
+      "description": "Tracks user progress in a manga.",
+      "type": "object",
+      "properties": {
+        "chapterId": { "type": "string" },
+        "page": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "/animes/{animeId}": {
+      "schema": "Anime",
+      "description": "African animes and mangas collection."
+    },
+    "/animes/{animeId}/episodes/{episodeId}": {
+      "schema": "Episode",
+      "description": "Episodes for a specific anime."
+    },
+    "/animes/{animeId}/chapters/{chapterId}": {
+      "schema": "Chapter",
+      "description": "Chapters for a specific manga."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile information."
+    },
+    "/users/{userId}/watchHistory/{animeId}": {
+      "schema": "WatchHistory",
+      "description": "User's watch history per anime."
+    },
+    "/users/{userId}/readHistory/{mangaId}": {
+      "schema": "ReadHistory",
+      "description": "User's reading history per manga."
+    },
+    "/users/{userId}/favorites/{animeId}": {
+      "schema": { "type": "object", "properties": { "addedAt": { "type": "string", "format": "date-time" } } },
+      "description": "User's favorite animes."
+    }
+  }
+}
