@@ -17,9 +17,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <LayoutGroup>
-          <RouterProvider router={router} />
-        </LayoutGroup>
+        <RouterProvider router={router} />
       </QueryClientProvider>
     </HelmetProvider>
   );

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=Bebas+Neue&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -21,13 +20,15 @@
 
 @layer base {
   body {
-    @apply bg-bg-primary text-text-primary font-sans;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    font-family: var(--font-display);
   }
 }
 
@@ -37,22 +38,27 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-bg-primary;
+  background-color: var(--color-bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-bg-tertiary rounded-full border-2 border-bg-primary;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 9999px;
+  border: 2px solid var(--color-bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-violet;
+  background-color: var(--color-accent-violet);
 }
 
-/* Glassmorphism helpers */
 .glass {
-  @apply bg-white/5 backdrop-blur-md border border-white/10;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-dark {
-  @apply bg-black/40 backdrop-blur-md border border-white/5;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
