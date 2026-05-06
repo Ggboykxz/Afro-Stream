@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🌍 AfroStream - La Plateforme de l'Anime & Manga Africain
 
-# Run and deploy your AI Studio app
+AfroStream est une plateforme de streaming et de lecture moderne dédiée à la célébration et à la diffusion de l'animation et des bandes dessinées africaines. Alliant une esthétique "AfroNight" audacieuse et une expérience utilisateur fluide, le projet met en avant des talents du continent.
 
-This contains everything you need to run your app locally.
+## ✨ Fonctionnalités Principales
 
-View your app in AI Studio: https://ai.studio/apps/8b66b467-e866-40e3-a060-6972cf940ca4
+- **🎬 Streaming Vidéo Prémium** : Intégration de `Vidstack` pour un lecteur vidéo fluide avec support des épisodes et résolutions.
+- **📚 Lecteur Manga Hybride** : Modes de lecture adaptatifs (Webtoon pour le scroll vertical, Manga pour le feuilletage horizontal).
+- **🎨 Design AfroNight** : Une interface sombre avec des accents Ultra-Violet et Or, utilisant Tailwind CSS v4 pour une performance maximale.
+- **🔐 Authentification Firebase** : Connexion sécurisée via Google pour gérer son profil et ses favoris.
+- **📂 Bibliothèque Dynamique** : Recherche instantanée et classification par pays d'origine (Nigeria, Afrique du Sud, Kenya, etc.).
+- **👤 Espace Personnel** : Historique de lecture, liste de favoris et gestion des préférences de compte.
 
-## Run Locally
+## 🚀 Stack Technique
 
-**Prerequisites:**  Node.js
+- **Framework** : [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Style** : [Tailwind CSS v4](https://tailwindcss.com/) (Architecture moderne @theme)
+- **Animations** : [Framer Motion](https://motion.dev/)
+- **Icônes** : [Lucide React](https://lucide.dev/)
+- **Backend** : [Firebase](https://firebase.google.com/) (Auth / Firestore)
+- **State Management** : [Zustand](https://zustand-demo.pmnd.rs/)
+- **Routage** : [React Router v7](https://reactrouter.com/)
 
+## 📂 Structure du Projet
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```text
+src/
+├── components/     # Composants atomiques et organisés par module (home, anime)
+├── lib/            # Utilitaires, constantes et données de démo (seedData)
+├── pages/          # Pages principales (Watch, Read, Profile, Search, etc.)
+├── router/         # Configuration du routing React Router
+├── services/       # Intégrations Firebase et services Tier-3
+└── store/          # Stores Zustand (authStore)
+```
+
+## 🛠️ Installation et Lancement
+
+1. **Installer les dépendances** :
+   ```bash
+   npm install
+   ```
+
+2. **Lancer en mode développement** :
+   ```bash
+   npm run dev
+   ```
+
+3. **Compiler pour la production** :
+   ```bash
+   npm run build
+   ```
+
+## 📜 Licence
+
+Ce projet est conçu dans le cadre d'une démonstration de plateforme culturelle dédiée à l'Afrique. Tous les visuels utilisés sont des placeholders issus d'Unsplash ou des références à des œuvres existantes.
